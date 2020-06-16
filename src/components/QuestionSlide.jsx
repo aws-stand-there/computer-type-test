@@ -50,17 +50,18 @@ const OptionButton = styled.button`
     }
 `;
 
-function QuestionSlide() {
+function QuestionSlide({ index, question, goNext }) {
     return (
         <Container>
-            <Header>1.</Header>
-            <Title>내일 점심으로 먹을 음식은?</Title>
+            <Header>{index + 1}.</Header>
+            <Title>{question.text}</Title>
 
             <OptionList>
-                <OptionButton>월남쌈 🥗</OptionButton>
-                <OptionButton>양꼬치 🍗</OptionButton>
-                <OptionButton>마라탕 🍜</OptionButton>
-                <OptionButton>마라샹궈 🍤</OptionButton>
+                {
+                    question.options.map((option) => (
+                        <OptionButton onClick={goNext}>{option}</OptionButton>        
+                    ))
+                }
             </OptionList>
         </Container>
     )
