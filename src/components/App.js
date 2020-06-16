@@ -2,8 +2,12 @@ import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.min.css'
-import QuestionSlide from './QuestionSlide';
 import firebase from 'firebase';
+import {
+  TitleSlide,
+  ResultSlide,
+  QuestionSlide,
+} from './slides';
 
 const Root = styled.div`
     max-width: 544px;
@@ -42,7 +46,7 @@ function App() {
       el: '.swiper-pagination',
       type: 'progressbar',
     },
-    allowTouchMove: true
+    allowTouchMove: false
   }
 
   const goNext = () => {
@@ -54,6 +58,9 @@ function App() {
   return (
     <Root>
       <Swiper getSwiper={setSwiper} {...params}>
+        <div>
+          <TitleSlide goNext={goNext} />
+        </div>
         {
           questions.map((question, index) => (
             <div>
@@ -66,7 +73,9 @@ function App() {
             </div>
           ))
         }
-        <div>Hi</div>
+        <div>
+          <ResultSlide />
+        </div>
       </Swiper>
     </Root>
   );
