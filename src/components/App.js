@@ -13,20 +13,23 @@ const Root = styled.div`
     max-width: 544px;
     min-height: 100vh;
     margin: 0 auto;
-    background-color: lightgray;
+    background-color: #fff;
 `;
 
 function App() {
   const [swiper, setSwiper] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
   const fetchQuestions = useCallback(async () => {
     const result = await firebase.firestore()
       .collection("questions")
-      .orderBy("id")
       .get();
 
     const questions = result.docs.map(doc => doc.data());
+  
+    // shuffle
+    questions.sort(() => 0.5 - Math.random());
     setQuestions(questions);
 
     if (swiper) {
@@ -55,6 +58,14 @@ function App() {
     }
   }
 
+  const selectOption = (questionId, optionId) => {
+    setSelectedOptions(prev => [...prev, {
+      questionId,
+      optionId
+    }]);
+    goNext();
+  }
+
   return (
     <Root>
       <Swiper getSwiper={setSwiper} {...params}>
@@ -68,13 +79,13 @@ function App() {
                 key={question.id}
                 index={index}
                 question={question}
-                goNext={goNext}
+                selectOption={selectOption}
               />
             </div>
           ))
         }
         <div>
-          <ResultSlide />
+          <ResultSlide selectedOptions={selectedOptions} />
         </div>
       </Swiper>
     </Root>
