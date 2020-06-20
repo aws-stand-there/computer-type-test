@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from './styles/Container';
-import Button from './styles/Button';
+import Container from '../styles/Container';
+import Button from '../styles/Button';
 
 const Header = styled.h2`
     margin: 0;
