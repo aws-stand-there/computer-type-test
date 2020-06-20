@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from './styles/Container';
-import Button from './styles/Button';
 import LinkButton from './styles/LinkButton';
 
 const Title = styled.p`
@@ -24,11 +23,6 @@ const ModelText = styled.p`
     font-weight: 400;
     color: gray;
     margin-top: 0;
-`;
-
-const TipText = styled.p`
-    color: gray;
-    font-size: 1rem;
 `;
 
 const Image = styled.img`
@@ -69,7 +63,7 @@ const RGBGradientSpan = styled.span`
 function ResultSlide({ selectedOptions }) {
     const score = selectedOptions
         .map(selected => selected.optionId)
-        .map(optionId => optionId == 0 ? 1 : 0)
+        .map(optionId => optionId === 0 ? 1 : 0)
         .reduce((prev, current) => prev + current, 0);
 
     const renderResult = (score) => {
