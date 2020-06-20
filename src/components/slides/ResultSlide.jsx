@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from './styles/Container';
-import LinkButton from './styles/LinkButton';
+import Container from '../styles/Container';
+import LinkButton from '../styles/LinkButton';
 
 const Title = styled.p`
     margin: 0;

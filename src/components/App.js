@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import styled from 'styled-components';
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.min.css'
 import firebase from 'firebase';
@@ -8,13 +7,7 @@ import {
   ResultSlide,
   QuestionSlide,
 } from './slides';
-
-const Root = styled.div`
-    max-width: 544px;
-    min-height: 100vh;
-    margin: 0 auto;
-    background-color: #fff;
-`;
+import Root from './styles/Root';
 
 function App() {
   const [swiper, setSwiper] = useState(null);
