@@ -49,22 +49,22 @@ function App() {
       el: '.swiper-pagination',
       type: 'progressbar',
     },
-    allowTouchMove: false
+    allowTouchMove: false,
   }
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
     if (swiper) {
       swiper.slideNext();
     }
-  }
+  }, [swiper]);
 
-  const selectOption = (questionId, optionId) => {
+  const selectOption = useCallback((questionId, optionId) => {
     setSelectedOptions(prev => [...prev, {
       questionId,
       optionId
     }]);
     goNext();
-  }
+  }, [setSelectedOptions, goNext]);
 
   return (
     <Root>
