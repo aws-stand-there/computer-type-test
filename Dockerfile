@@ -1,12 +1,14 @@
-FROM node:lts AS builder
-WORKDIR /app
+FROM node:lts-alpine as worker
+
+RUN mkdir /computer-type-test
+WORKDIR /computer-type-test
 COPY . .
-RUN yarn run build
+RUN yarn && yarn run build
 
-FROM node:lts
-RUN yarn global add serve
-WORKDIR /app
-COPY --from=builder /app/build .
+FROM nginx:stable-alpine
 
-EXPOSE 3000
-CMD ["serve", "-p", "3000", "-s", "."]
+COPY _/default.conf /etc/nginx/conf.d/
+COPY --from=worker /computer-type-test/build /usr/share/nginx/html
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
