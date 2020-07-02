@@ -79,7 +79,7 @@ function TitleSlide({ goNext }) {
                 <Button onClick={goNext}>시작하기</Button>
             </ButtonWrapper>
 
-            <Description>신한대학교 홍보문장연습 1조 위둥이가 <br/> 산학 협력 프로그램의 지원으로 만들었어요</Description>
+            <Description>AWS 게섯거라 팀이 <br/> AINIZE CDP 프로그램의 지원으로 만들었어요</Description>
         </Container>
     )
 }
