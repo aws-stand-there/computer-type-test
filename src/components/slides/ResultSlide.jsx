@@ -136,7 +136,7 @@ function ResultSlide({ selectedOptions }) {
             </Description>
 
             <ButtonWrapper>
-                <LinkButton href="https://withuspc.com/02/11_view.php?nPage=&SearchType=&SearchKey=&MODE=VIEW&nPage=1&p_seq=7798">제품 보러가기</LinkButton>
+                <LinkButton href="http://withuspc.com/02/02_view.php?nPage=&SearchType=&SearchKey=&MODE=VIEW&nPage=1&p_seq=8229">제품 보러가기</LinkButton>
             </ButtonWrapper>
         </div>
     );
