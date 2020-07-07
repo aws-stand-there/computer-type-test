@@ -19,6 +19,9 @@ const Subtitle = styled.h2`
     font-style: italic;
 `;
 
+const Image = styled.img`
+`;
+
 const LogoWrapper = styled.div`
     margin: 1rem;
 `;
@@ -50,10 +53,6 @@ const LogoSubtext = styled.p`
     letter-spacing: 3px;
 `;
 
-const Description = styled.p`
-    color: gray;
-`;
-
 const ButtonWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -79,7 +78,7 @@ function TitleSlide({ goNext }) {
                 <Button onClick={goNext}>시작하기</Button>
             </ButtonWrapper>
 
-            <Description>AWS 게섯거라 팀이 <br/> AINIZE CDP 프로그램의 지원으로 만들었어요</Description>
+            <Image src={require('./footer.svg')} />
         </Container>
     )
 }
